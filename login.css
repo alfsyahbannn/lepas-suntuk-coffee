@@ -1,0 +1,46 @@
+:root {
+    --primary: #b6895b;
+    --bg: #010101;
+}
+
+body{
+    /* font-family: 'Poppins', sans-serif; */
+    background-color: var(--bg);
+    color: #fff;
+    /* max-width: 100rem; */
+    /* min-height: 5000px; */
+}
+
+.container {
+    position: relative;
+    margin-top: 250px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

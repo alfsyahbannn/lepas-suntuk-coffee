@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">Lepas Suntuk <span>Coffee</span></a>
+
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="menu.html">Menu</a>
+        <a href="produk.html">Produk</a>
+        <a href="contact.html">Kontak</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart-button"
+          ><i data-feather="shopping-cart"></i
+        ></a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+
+      <!-- Search Form start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- Search Form end -->
+
+      <!-- Shopping Cart start -->
+      <div class="shopping-cart">
+        <div class="cart-item">
+          <img src="img/products/produk1.jpg" alt="produk1" />
+          <div class="item-detail">
+            <h3>Product 1</h3>
+            <div class="item-price">IDR 30K</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+        <div class="cart-item">
+          <img src="img/products/produk1.jpg" alt="produk1" />
+          <div class="item-detail">
+            <h3>Product 1</h3>
+            <div class="item-price">IDR 30K</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+        <div class="cart-item">
+          <img src="img/products/produk1.jpg" alt="produk1" />
+          <div class="item-detail">
+            <h3>Product 1</h3>
+            <div class="item-price">IDR 30K</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+      </div>
+      <!-- Shopping Cart end -->
+    </nav>
+
+    <section id="menu" class="menu">
+      <h2><span>Menu </span>Kami</h2>
+
+      <div class="content">
+        <div class="menu-categories">
+            <div class="menu-category">
+                <h3>Espresso Base</h3>
+            </div>
+            <div class="menu-category">
+                <h3>Non-Coffee</h3>
+            </div>
+            <div class="menu-category">
+                <h3>Food</h3>
+            </div>
+            <div class="menu-category">
+                <h3>Snacks</h3>
+            </div>
+        </div>
+        <div id="menu-items"></div>
+    </div>
+
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img src="img/products/produk1.jpg" alt="Product 1" />
+          <div class="product-content">
+            <h3>Product 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, enim
+              veniam praesentium molestiae possimus, nam, earum deleniti nemo
+              dolore laborum maiores sapiente fugiat provident a.
+            </p>
+            <div class="product-stars">
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+            </div>
+            <div class="product-price">IDR 30K <span>IDR 50K</span></div>
+            <a href="#"
+              ><i data-feather="shopping-cart"></i><span>add to cart</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script>
+      var espressoBaseMenu = [
+          { name: "Espresso", price: "$2.50" },
+          { name: "Americano", price: "$3.00" },
+          { name: "Cappuccino", price: "$3.50" },
+          { name: "Latte", price: "$3.50" },
+          { name: "Mocha", price: "$4.00" },
+          { name: "Macchiato", price: "$3.50" },
+          { name: "Flat White", price: "$4.00" },
+          { name: "Affogato", price: "$4.50" },
+          { name: "Cortado", price: "$4.00" },
+          { name: "Doppio", price: "$3.00" }
+      ];
+  
+      var nonCoffeeMenu = [
+          { name: "Hot Chocolate", price: "$3.50" },
+          { name: "Matcha Latte", price: "$4.00" },
+          { name: "Chai Tea", price: "$3.50" },
+          { name: "Fruit Smoothies", price: "$4.50" },
+          { name: "Iced Tea", price: "$3.00" },
+          { name: "Lemonade", price: "$3.00" },
+          { name: "Mocktails", price: "$4.50" },
+          { name: "Milkshakes", price: "$4.00" },
+          { name: "Fresh Juices", price: "$4.00" },
+          { name: "Smoothie Bowls", price: "$5.00" }
+      ];
+  
+      var foodMenu = [
+          { name: "Sandwiches", price: "$5.50" },
+          { name: "Salads", price: "$6.00" },
+          { name: "Pastries", price: "$3.00" },
+          { name: "Soup of the Day", price: "$4.00" },
+          { name: "Burgers", price: "$7.00" },
+          { name: "Pizzas", price: "$8.00" },
+          { name: "Pasta", price: "$6.50" },
+          { name: "Rice Bowls", price: "$7.00" },
+          { name: "Wraps", price: "$6.50" },
+          { name: "Breakfast Platters", price: "$8.50" }
+      ];
+  
+      var snacksMenu = [
+          { name: "Chips", price: "$2.00" },
+          { name: "Popcorn", price: "$2.50" },
+          { name: "Cookies", price: "$2.50" },
+          { name: "Brownies", price: "$3.00" },
+          { name: "Nachos", price: "$4.00" },
+          { name: "Pretzels", price: "$3.00" },
+          { name: "Nuts", price: "$3.50" },
+          { name: "Candies", price: "$2.50" },
+          { name: "Ice Cream", price: "$4.00" },
+          { name: "Yogurt Parfait", price: "$4.50" }
+      ];
+  
+      var menuCategories = document.querySelectorAll(".menu-category");
+      var menuItemsContainer = document.getElementById("menu-items");
+  
+      menuCategories.forEach(function(category, index) {
+          category.addEventListener("click", function() {
+              var menuItems = [];
+  
+              switch (index) {
+                  case 0:
+                      menuItems = espressoBaseMenu;
+                      break;
+                  case 1:
+                      menuItems = nonCoffeeMenu;
+                      break;
+                  case 2:
+                      menuItems = foodMenu;
+                      break;
+                  case 3:
+                      menuItems = snacksMenu;
+                      break;
+                  default:
+                      break;
+              }
+  
+              displayMenuItems(menuItems);
+          });
+      });
+  
+      function displayMenuItems(menuItems) {
+          var menuItemsHTML = "<ul>";
+  
+          menuItems.forEach(function(item) {
+              menuItemsHTML += `
+                  <li>
+                      <span>${item.name}</span>
+                      <span class="menu-item-price">${item.price}</span>
+                      <button class="order-button" id="order-button">Order</button>
+                  </li>
+              `;
+          });
+  
+          menuItemsHTML += "</ul>";
+          menuItemsContainer.innerHTML = menuItemsHTML;
+      }
+  </script>
+
+      <div class="row">
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Espresso -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Americano -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Long Black -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Coffee Latte -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Cappuccino -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Caramel Macchiato -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Ice Coffe Vanilla -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+        <div class="menu-card">
+          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Brown Sugar Latte -</h3>
+          <p class="menu-card-price">IDR 15K</p>
+        </div>
+      </div>
+    </section>
+    <!-- Menu Section End -->
+
+    <!-- Footer start -->
+    <footer>
+      <div class="socials">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+      </div>
+
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+
+      <div class="credit">
+        <p>Created by <a href="">alfsyahban</a> | &copy; 2023.</p>
+      </div>
+    </footer>
+    <!-- Footer end -->
+
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
+
+    
+  </body>
+
+  
+
+</html>
